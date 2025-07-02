@@ -59,9 +59,9 @@ def main():
 
     parser.add_argument("input_dir", help="Path to the input directory \
                         which contains subdirectories for each song containing the mixtures")
-    parser.add_argument("-o", "--output_dir", default='./separated',
+    parser.add_argument("-o", "--output_dir", default='./umx_out',
                         help="Path to the output directory to save the separated \
-                        stems by song to (default: ./separated)")
+                        stems by song to (default: ./umx_out)")
     
     args = parser.parse_args()
 
