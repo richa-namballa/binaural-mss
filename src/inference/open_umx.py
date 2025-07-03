@@ -15,9 +15,19 @@ def separate(in_file, model, gpu=True):
     """
     Run Open-Unmix source separation model on WAV files to isolate stems.
 
-    :param in_file: (str) path of mixture WAV file to separate
-    :param model: (Separator) open unmix model object
-    :param gpu: (bool) whether a gpu is available for use
+    Parameters
+    ----------
+    in_file : str
+              Path to the mixture WAV file to separate.
+    model : Separator
+            Open-Unmix model object model object used for source separation.
+    gpu : bool
+          Whether a GPU is available to be used for processing.
+
+    Returns
+    -------
+    list of np.ndarray
+        List of separated stems, each as a NumPy array.
     """
     # only process wav files
     if in_file.endswith(".wav"):
@@ -52,7 +62,7 @@ def separate(in_file, model, gpu=True):
 
 def main():
     """
-    Separate every mixture in the input directory.
+    Parse command-line arguments and separate every mixture in the input directory.
     """
     # parse arguments
     parser = argparse.ArgumentParser(description="Run Open-Unmix on a set of input mixtures.")

@@ -22,9 +22,18 @@ def separate(in_file, model):
     """
     Run Spleeter source separation model on WAV files to isolate stems.
 
-    :param in_file: (str) path of mixture WAV file to separate
-    :param model: (spleeter.separator.Separator) spleeter model object
-    """  
+    Parameters
+    ----------
+    in_file : str
+              Path to the mixture WAV file to separate.
+    model : spleeter.separator.Separator
+            Spleeter model object used for source separation.
+
+    Returns
+    -------
+    list of np.ndarray
+        List of separated stems, each as a NumPy array.
+    """
     # only process wav files
     if in_file.endswith(".wav"):
         # read the soundfile
@@ -45,7 +54,7 @@ def separate(in_file, model):
 
 def main():
     """
-    Separate every mixture in the input directory.
+    Parse command-line arguments and separate every mixture in the input directory.
     """
     # parse arguments
     parser = argparse.ArgumentParser(description="Run Spleeter on a set of input mixtures.")
