@@ -5,7 +5,7 @@ by Richa Namballa, Dr. Agnieszka Roginska, and Dr. Magdalena Fuentes.
 > Binaural audio remains underexplored within the music information retrieval community. Motivated by the rising popularity of virtual and augmented reality experiences as well as potential applications to accessibility, we investigate how well existing music source separation (MSS) models perform on binaural audio. Although these models process two-channel inputs, it is unclear how effectively they retain spatial information. In this work, we evaluate how several popular MSS models preserve spatial information on both standard stereo and novel binaural datasets. Our binaural data is synthesized using stems from MUSDB18-HQ and open-source head-related transfer functions by positioning instrument sources randomly along the horizontal plane. We then assess the spatial quality of the separated stems using signal processing and interaural cue-based metrics. Our results show that stereo MSS models fail to preserve  the spatial information critical for maintaining the immersive quality of binaural audio, and that the degradation depends on model architecture as well as the target instrument. Finally, we highlight valuable opportunities for future work at the intersection of MSS and immersive audio.
 
 
-### Binaural-MUSDB
+## Binaural-MUSDB
 
 <center><img src="assets/source_placement.png" width="400"></center>
 
@@ -33,10 +33,38 @@ python binaural_synth.py \
 ```
 
 
-
+## Experiments
 ### Inference
 
-This repository includes the code for running inference on the test sets of both stereo MUSDB18-HQ and Binaural-MUSDB using Demucs (`demucs.ipynb`), OpenUnmix (`open_unmix.ipynb`), and Spleeter (`spleeter.ipynb`). 
+To run inference on either MUSDB18-HQ or Binaural-MUSDB:
+
+**HT Demucs (FT)**
+```
+python inference/demucs.py \
+        /path/to/input/data/split
+        -o /path/to/output/directory
+```
+
+**Open-Unmix**
+```
+python inference/open_umx.py \
+        /path/to/input/data/split
+        -o /path/to/output/directory
+```
+
+**Spleeter**
+```
+python inference/spleeter.py \
+        /path/to/input/data/split
+        -o /path/to/output/directory
+```
+
+**Example Usage**
+```
+python inference/demucs.py \
+        data/binaural_musdb18/test
+        -o data/output/htdemucs_ft/binaural/test
+```
 
 ### Evaluation
 
@@ -44,7 +72,7 @@ To evaluate the models' performances, we compute the Signal to Spatial Distortio
 
 The summary statistics are available in `table_analysis.ipynb`. Plots can be replicated in `plot_analysis.ipynb` but you must run `metadata.ipynb` to aggregate the angle metadata first.
 
-### BibTeX Citation
+## BibTeX Citation
 
 ```
 @inproceedings{Namballa2025,
@@ -57,7 +85,7 @@ The summary statistics are available in `table_analysis.ipynb`. Plots can be rep
 }
 ```
 
-### References
+## References
 
 [1] Z. Rafii, A. Liutkus, F.-R. Stöter, S. I. Mimilakis, and R. Bittner, "MUSDB18-HQ - an uncompressed version of MUSDB18," Dec. 2019. [Online]. Available: https://doi.org/10.5281/zenodo.3338373
 
