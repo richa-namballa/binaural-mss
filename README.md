@@ -78,7 +78,7 @@ python spauq_metrics.py \
     -n name_of_output_csv_file
 ```
 
-Similarly, the difference in interaural time difference (**$\Delta$ITD**) and interaural level difference (**$\Delta$ILD**) can be calculated.
+Similarly, the difference in interaural time difference (**ΔITD**) and interaural level difference (**ΔILD**) can be calculated.
 ```
 python interaural_metrics.py \
     /path/to/reference/directories \
