@@ -5,23 +5,92 @@ by Richa Namballa, Dr. Agnieszka Roginska, and Dr. Magdalena Fuentes.
 > Binaural audio remains underexplored within the music information retrieval community. Motivated by the rising popularity of virtual and augmented reality experiences as well as potential applications to accessibility, we investigate how well existing music source separation (MSS) models perform on binaural audio. Although these models process two-channel inputs, it is unclear how effectively they retain spatial information. In this work, we evaluate how several popular MSS models preserve spatial information on both standard stereo and novel binaural datasets. Our binaural data is synthesized using stems from MUSDB18-HQ and open-source head-related transfer functions by positioning instrument sources randomly along the horizontal plane. We then assess the spatial quality of the separated stems using signal processing and interaural cue-based metrics. Our results show that stereo MSS models fail to preserve  the spatial information critical for maintaining the immersive quality of binaural audio, and that the degradation depends on model architecture as well as the target instrument. Finally, we highlight valuable opportunities for future work at the intersection of MSS and immersive audio.
 
 
-### Data
+## Binaural-MUSDB
 
-Binaural-MUSDB is available on Zenodo.
+<center><img src="assets/source_placement.png" width="400"></center>
 
-It's synthesis can also be reproduced with [MUSDB18-HQ](https://zenodo.org/records/3338373), Subject D1's HRIRs (44.1kHz, 16-bit WAV) from [SADIE II](https://www.york.ac.uk/sadie-project/database.html), and the provided code (with the random seed) in `binaural_data_syn.ipynb`.
+To perform binaural synthesis, first download [MUSDB18-HQ](https://zenodo.org/records/3338373) and the Head-Related Impulse Responses (HRIRs) for Subject D1 (44.1kHz, 16-bit WAV) from [SADIE II](https://www.york.ac.uk/sadie-project/database.html).
 
+<center><img src="assets/dataset_creation.png" width="500"></center>
+
+**For randomly placed sources**:
+
+```
+python binaural_synth.py \
+    /path/to/musdbhq18
+    /path/to/output/directory
+    /path/to/hrir/directory
+```
+
+**Example usage to reproduce Binaural-MUSDB**:
+
+```
+python binaural_synth.py \
+    data/musdb18hq
+    data/binaural_musdb18
+    data/D1_HRIR_WAV/44K_16bit
+    data/binaural_musdb_metadata.json
+```
+
+
+## Experiments
 ### Inference
 
-This repository includes the code for running inference on the test sets of both stereo MUSDB18-HQ and Binaural-MUSDB using Demucs (`demucs.ipynb`), OpenUnmix (`open_unmix.ipynb`), and Spleeter (`spleeter.ipynb`). 
+To run inference on either MUSDB18-HQ or Binaural-MUSDB from the `inference/` directory:
+
+**HT Demucs (FT)**
+```
+python demucs.py \
+    /path/to/input/data/split \
+    -o /path/to/output/directory
+```
+
+**Open-Unmix**
+```
+python open_umx.py \
+    /path/to/input/data/split \
+    -o /path/to/output/directory
+```
+
+**Spleeter**
+```
+python spleeter.py \
+    /path/to/input/data/split \
+    -o /path/to/output/directory
+```
+
+**Example Usage**
+```
+python demucs.py \
+    data/binaural_musdb18/test \
+    -o data/output/htdemucs_ft/binaural/test
+```
 
 ### Evaluation
 
-To evaluate the models' performances, we compute the Signal to Spatial Distortion Ratio (SSR) and Signal to Residual Distortion (SRR) ratios in `spauq_metrics.ipynb`. The Interaural Time Difference (ITD) and Interauaral Level Difference (ILD), as well as their $\Delta$ values, are calculated in `interaural_metrics.ipynb`.
+To evaluate the models' performances, we compute the Signal to Spatial Distortion Ratio (**SSR**) and Signal to Residual Distortion (**SRR**) ratios. The reference and estimated directories should contain subdirectories for each song, containing the stems as WAV files. Run the scripts from the `eval` directory.
 
-The summary statistics are available in `table_analysis.ipynb`. Plots can be replicated in `plot_analysis.ipynb` but you must run `metadata.ipynb` to aggregate the angle metadata first.
+```
+python spauq_metrics.py \
+    /path/to/reference/directories \
+    /path/to/estimated/directories \
+    -o /path/to/output/directory \
+    -n name_of_output_csv_file
+```
 
-### BibTeX Citation
+Similarly, the difference in interaural time difference (**ΔITD**) and interaural level difference (**ΔILD**) can be calculated.
+```
+python interaural_metrics.py \
+    /path/to/reference/directories \
+    /path/to/estimated/directories \
+    -o /path/to/output/directory \
+    -n name_of_output_csv_file
+```
+
+
+The summary statistics can be computed in `notebook/table_analysis.ipynb`. Plots can be replicated in `notebook/plot_analysis.ipynb` but you must run `metadata.ipynb` to aggregate the angle metadata first.
+
+## BibTeX Citation
 
 ```
 @inproceedings{Namballa2025,
@@ -34,7 +103,7 @@ The summary statistics are available in `table_analysis.ipynb`. Plots can be rep
 }
 ```
 
-### References
+## References
 
 [1] Z. Rafii, A. Liutkus, F.-R. Stöter, S. I. Mimilakis, and R. Bittner, "MUSDB18-HQ - an uncompressed version of MUSDB18," Dec. 2019. [Online]. Available: https://doi.org/10.5281/zenodo.3338373
 

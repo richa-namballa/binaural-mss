@@ -1,0 +1,906 @@
+{
+  "test": {
+    "Moosmusic - Big Dummy Shake": {
+      "vocals": 300,
+      "bass": 10,
+      "drums": 80,
+      "other": 70
+    },
+    "The Mountaineering Club - Mallory": {
+      "vocals": 30,
+      "bass": 320,
+      "drums": 40,
+      "other": 310
+    },
+    "Bobby Nobody - Stitch Up": {
+      "vocals": 340,
+      "bass": 300,
+      "drums": 270,
+      "other": 330
+    },
+    "Punkdisco - Oral Hygiene": {
+      "vocals": 270,
+      "bass": 50,
+      "drums": 0,
+      "other": 300
+    },
+    "Lyndsey Ollard - Catching Up": {
+      "vocals": 330,
+      "bass": 80,
+      "drums": 270,
+      "other": 50
+    },
+    "Al James - Schoolboy Facination": {
+      "vocals": 290,
+      "bass": 40,
+      "drums": 300,
+      "other": 310
+    },
+    "James Elder & Mark M Thompson - The English Actor": {
+      "vocals": 80,
+      "bass": 340,
+      "drums": 10,
+      "other": 300
+    },
+    "Juliet's Rescue - Heartbeats": {
+      "vocals": 40,
+      "bass": 60,
+      "drums": 20,
+      "other": 270
+    },
+    "The Easton Ellises - Falcon 69": {
+      "vocals": 310,
+      "bass": 350,
+      "drums": 90,
+      "other": 40
+    },
+    "Secretariat - Borderline": {
+      "vocals": 280,
+      "bass": 270,
+      "drums": 90,
+      "other": 10
+    },
+    "The Long Wait - Dark Horses": {
+      "vocals": 0,
+      "bass": 340,
+      "drums": 70,
+      "other": 280
+    },
+    "Sambasevam Shanmugam - Kaathaadi": {
+      "vocals": 10,
+      "bass": 20,
+      "drums": 80,
+      "other": 340
+    },
+    "Signe Jakobsen - What Have You Done To Me": {
+      "vocals": 0,
+      "bass": 40,
+      "drums": 10,
+      "other": 320
+    },
+    "Girls Under Glass - We Feel Alright": {
+      "vocals": 40,
+      "bass": 270,
+      "drums": 30,
+      "other": 290
+    },
+    "Mu - Too Bright": {
+      "vocals": 80,
+      "bass": 20,
+      "drums": 320,
+      "other": 290
+    },
+    "Speak Softly - Broken Man": {
+      "vocals": 350,
+      "bass": 50,
+      "drums": 290,
+      "other": 20
+    },
+    "Georgia Wonder - Siren": {
+      "vocals": 20,
+      "bass": 280,
+      "drums": 40,
+      "other": 350
+    },
+    "Arise - Run Run Run": {
+      "vocals": 50,
+      "bass": 90,
+      "drums": 10,
+      "other": 290
+    },
+    "Raft Monk - Tiring": {
+      "vocals": 330,
+      "bass": 50,
+      "drums": 290,
+      "other": 20
+    },
+    "M.E.R.C. Music - Knockout": {
+      "vocals": 310,
+      "bass": 270,
+      "drums": 80,
+      "other": 50
+    },
+    "Triviul feat. The Fiend - Widow": {
+      "vocals": 320,
+      "bass": 30,
+      "drums": 90,
+      "other": 0
+    },
+    "Tom McKenzie - Directions": {
+      "vocals": 20,
+      "bass": 30,
+      "drums": 290,
+      "other": 270
+    },
+    "Timboz - Pony": {
+      "vocals": 310,
+      "bass": 50,
+      "drums": 330,
+      "other": 300
+    },
+    "BKS - Bulldozer": {
+      "vocals": 280,
+      "bass": 320,
+      "drums": 60,
+      "other": 330
+    },
+    "The Sunshine Garcia Band - For I Am The Moon": {
+      "vocals": 50,
+      "bass": 330,
+      "drums": 270,
+      "other": 90
+    },
+    "The Easton Ellises (Baumi) - SDRNR": {
+      "vocals": 350,
+      "bass": 280,
+      "drums": 70,
+      "other": 0
+    },
+    "AM Contra - Heart Peripheral": {
+      "vocals": 50,
+      "bass": 310,
+      "drums": 20,
+      "other": 10
+    },
+    "The Doppler Shift - Atrophy": {
+      "vocals": 80,
+      "bass": 40,
+      "drums": 300,
+      "other": 340
+    },
+    "Motor Tapes - Shore": {
+      "vocals": 10,
+      "bass": 60,
+      "drums": 300,
+      "other": 40
+    },
+    "Detsky Sad - Walkie Talkie": {
+      "vocals": 90,
+      "bass": 290,
+      "drums": 310,
+      "other": 40
+    },
+    "Buitraker - Revo X": {
+      "vocals": 80,
+      "bass": 300,
+      "drums": 40,
+      "other": 340
+    },
+    "Little Chicago's Finest - My Own": {
+      "vocals": 30,
+      "bass": 280,
+      "drums": 350,
+      "other": 20
+    },
+    "Zeno - Signs": {
+      "vocals": 310,
+      "bass": 90,
+      "drums": 60,
+      "other": 290
+    },
+    "Hollow Ground - Ill Fate": {
+      "vocals": 30,
+      "bass": 90,
+      "drums": 0,
+      "other": 340
+    },
+    "Cristina Vane - So Easy": {
+      "vocals": 40,
+      "bass": 270,
+      "drums": 290,
+      "other": 320
+    },
+    "Speak Softly - Like Horses": {
+      "vocals": 270,
+      "bass": 290,
+      "drums": 0,
+      "other": 90
+    },
+    "Side Effects Project - Sing With Me": {
+      "vocals": 310,
+      "bass": 320,
+      "drums": 50,
+      "other": 330
+    },
+    "Skelpolu - Resurrection": {
+      "vocals": 350,
+      "bass": 70,
+      "drums": 10,
+      "other": 90
+    },
+    "Nerve 9 - Pray For The Rain": {
+      "vocals": 290,
+      "bass": 330,
+      "drums": 10,
+      "other": 350
+    },
+    "Louis Cressy Band - Good Time": {
+      "vocals": 70,
+      "bass": 280,
+      "drums": 290,
+      "other": 30
+    },
+    "Angels In Amplifiers - I'm Alright": {
+      "vocals": 20,
+      "bass": 280,
+      "drums": 30,
+      "other": 330
+    },
+    "Ben Carrigan - We'll Talk About It All Tonight": {
+      "vocals": 60,
+      "bass": 310,
+      "drums": 30,
+      "other": 20
+    },
+    "BKS - Too Much": {
+      "vocals": 30,
+      "bass": 270,
+      "drums": 310,
+      "other": 20
+    },
+    "Carlos Gonzalez - A Place For Us": {
+      "vocals": 30,
+      "bass": 300,
+      "drums": 0,
+      "other": 320
+    },
+    "Secretariat - Over The Top": {
+      "vocals": 80,
+      "bass": 40,
+      "drums": 330,
+      "other": 10
+    },
+    "We Fell From The Sky - Not You": {
+      "vocals": 350,
+      "bass": 320,
+      "drums": 270,
+      "other": 330
+    },
+    "Enda Reilly - Cur An Long Ag Seol": {
+      "vocals": 0,
+      "bass": 40,
+      "drums": 320,
+      "other": 330
+    },
+    "Forkupines - Semantics": {
+      "vocals": 290,
+      "bass": 20,
+      "drums": 280,
+      "other": 340
+    },
+    "PR - Happy Daze": {
+      "vocals": 330,
+      "bass": 300,
+      "drums": 30,
+      "other": 320
+    },
+    "PR - Oh No": {
+      "vocals": 90,
+      "bass": 30,
+      "drums": 340,
+      "other": 310
+    }
+  },
+  "train": {
+    "The Districts - Vermont": {
+      "vocals": 320,
+      "bass": 30,
+      "drums": 290,
+      "other": 0
+    },
+    "BigTroubles - Phantom": {
+      "vocals": 60,
+      "bass": 80,
+      "drums": 350,
+      "other": 40
+    },
+    "Music Delta - Rockabilly": {
+      "vocals": 20,
+      "bass": 300,
+      "drums": 310,
+      "other": 60
+    },
+    "Johnny Lokke - Promises & Lies": {
+      "vocals": 0,
+      "bass": 20,
+      "drums": 290,
+      "other": 350
+    },
+    "Hezekiah Jones - Borrowed Heart": {
+      "vocals": 20,
+      "bass": 50,
+      "drums": 30,
+      "other": 10
+    },
+    "Steven Clark - Bounty": {
+      "vocals": 350,
+      "bass": 80,
+      "drums": 70,
+      "other": 60
+    },
+    "Young Griffo - Pennies": {
+      "vocals": 20,
+      "bass": 0,
+      "drums": 310,
+      "other": 290
+    },
+    "Phre The Eon - Everybody's Falling Apart": {
+      "vocals": 60,
+      "bass": 90,
+      "drums": 40,
+      "other": 300
+    },
+    "Music Delta - Gospel": {
+      "vocals": 280,
+      "bass": 330,
+      "drums": 90,
+      "other": 350
+    },
+    "Remember December - C U Next Time": {
+      "vocals": 320,
+      "bass": 330,
+      "drums": 50,
+      "other": 10
+    },
+    "Actions - South Of The Water": {
+      "vocals": 0,
+      "bass": 70,
+      "drums": 310,
+      "other": 50
+    },
+    "Jokers, Jacks & Kings - Sea Of Leaves": {
+      "vocals": 60,
+      "bass": 70,
+      "drums": 10,
+      "other": 80
+    },
+    "Alexander Ross - Velvet Curtain": {
+      "vocals": 60,
+      "bass": 70,
+      "drums": 0,
+      "other": 90
+    },
+    "Alexander Ross - Goodbye Bolero": {
+      "vocals": 30,
+      "bass": 50,
+      "drums": 90,
+      "other": 70
+    },
+    "Black Bloc - If You Want Success": {
+      "vocals": 350,
+      "bass": 70,
+      "drums": 340,
+      "other": 40
+    },
+    "Clara Berry And Wooldog - Air Traffic": {
+      "vocals": 80,
+      "bass": 300,
+      "drums": 310,
+      "other": 90
+    },
+    "Secret Mountains - High Horse": {
+      "vocals": 280,
+      "bass": 50,
+      "drums": 80,
+      "other": 40
+    },
+    "Fergessen - The Wind": {
+      "vocals": 50,
+      "bass": 90,
+      "drums": 10,
+      "other": 40
+    },
+    "Triviul - Dorothy": {
+      "vocals": 10,
+      "bass": 30,
+      "drums": 340,
+      "other": 350
+    },
+    "Titanium - Haunted Age": {
+      "vocals": 50,
+      "bass": 270,
+      "drums": 80,
+      "other": 300
+    },
+    "The Wrong'Uns - Rothko": {
+      "vocals": 320,
+      "bass": 10,
+      "drums": 350,
+      "other": 270
+    },
+    "Fergessen - Back From The Start": {
+      "vocals": 330,
+      "bass": 10,
+      "drums": 340,
+      "other": 270
+    },
+    "Young Griffo - Facade": {
+      "vocals": 40,
+      "bass": 30,
+      "drums": 330,
+      "other": 270
+    },
+    "A Classic Education - NightOwl": {
+      "vocals": 90,
+      "bass": 330,
+      "drums": 40,
+      "other": 290
+    },
+    "Wall Of Death - Femme": {
+      "vocals": 290,
+      "bass": 280,
+      "drums": 40,
+      "other": 270
+    },
+    "The So So Glos - Emergency": {
+      "vocals": 300,
+      "bass": 0,
+      "drums": 340,
+      "other": 90
+    },
+    "Celestial Shore - Die For Us": {
+      "vocals": 50,
+      "bass": 290,
+      "drums": 350,
+      "other": 70
+    },
+    "Patrick Talbot - A Reason To Leave": {
+      "vocals": 320,
+      "bass": 80,
+      "drums": 310,
+      "other": 20
+    },
+    "Auctioneer - Our Future Faces": {
+      "vocals": 270,
+      "bass": 90,
+      "drums": 80,
+      "other": 0
+    },
+    "Dark Ride - Burning Bridges": {
+      "vocals": 300,
+      "bass": 280,
+      "drums": 30,
+      "other": 330
+    },
+    "Music Delta - Rock": {
+      "vocals": 320,
+      "bass": 280,
+      "drums": 350,
+      "other": 30
+    },
+    "Aimee Norwich - Child": {
+      "vocals": 10,
+      "bass": 340,
+      "drums": 330,
+      "other": 20
+    },
+    "Dreamers Of The Ghetto - Heavy Love": {
+      "vocals": 0,
+      "bass": 330,
+      "drums": 30,
+      "other": 300
+    },
+    "Clara Berry And Wooldog - Waltz For My Victims": {
+      "vocals": 290,
+      "bass": 30,
+      "drums": 350,
+      "other": 50
+    },
+    "Clara Berry And Wooldog - Stella": {
+      "vocals": 330,
+      "bass": 40,
+      "drums": 90,
+      "other": 280
+    },
+    "Young Griffo - Blood To Bone": {
+      "vocals": 350,
+      "bass": 30,
+      "drums": 60,
+      "other": 0
+    },
+    "Chris Durban - Celebrate": {
+      "vocals": 270,
+      "bass": 70,
+      "drums": 40,
+      "other": 290
+    },
+    "Music Delta - Grunge": {
+      "vocals": 20,
+      "bass": 60,
+      "drums": 330,
+      "other": 300
+    },
+    "Music Delta - Punk": {
+      "vocals": 40,
+      "bass": 0,
+      "drums": 90,
+      "other": 330
+    },
+    "Meaxic - Take A Step": {
+      "vocals": 300,
+      "bass": 40,
+      "drums": 320,
+      "other": 0
+    },
+    "ANiMAL - Clinic A": {
+      "vocals": 270,
+      "bass": 330,
+      "drums": 80,
+      "other": 300
+    },
+    "Drumtracks - Ghost Bitch": {
+      "vocals": 310,
+      "bass": 270,
+      "drums": 40,
+      "other": 60
+    },
+    "Grants - PunchDrunk": {
+      "vocals": 340,
+      "bass": 60,
+      "drums": 270,
+      "other": 80
+    },
+    "Strand Of Oaks - Spacestation": {
+      "vocals": 340,
+      "bass": 50,
+      "drums": 320,
+      "other": 10
+    },
+    "James May - All Souls Moon": {
+      "vocals": 50,
+      "bass": 0,
+      "drums": 270,
+      "other": 330
+    },
+    "Hollow Ground - Left Blind": {
+      "vocals": 50,
+      "bass": 60,
+      "drums": 90,
+      "other": 290
+    },
+    "Atlantis Bound - It Was My Fault For Waiting": {
+      "vocals": 80,
+      "bass": 90,
+      "drums": 0,
+      "other": 300
+    },
+    "Music Delta - Country2": {
+      "vocals": 80,
+      "bass": 310,
+      "drums": 330,
+      "other": 280
+    },
+    "Music Delta - Hendrix": {
+      "vocals": 0,
+      "bass": 10,
+      "drums": 280,
+      "other": 300
+    },
+    "Traffic Experiment - Once More (With Feeling)": {
+      "vocals": 80,
+      "bass": 290,
+      "drums": 0,
+      "other": 50
+    },
+    "Music Delta - Beatles": {
+      "vocals": 320,
+      "bass": 20,
+      "drums": 310,
+      "other": 300
+    },
+    "AvaLuna - Waterduct": {
+      "vocals": 10,
+      "bass": 340,
+      "drums": 330,
+      "other": 40
+    },
+    "Angela Thomas Wade - Milk Cow Blues": {
+      "vocals": 290,
+      "bass": 310,
+      "drums": 340,
+      "other": 330
+    },
+    "Music Delta - Disco": {
+      "vocals": 310,
+      "bass": 0,
+      "drums": 280,
+      "other": 290
+    },
+    "Faces On Film - Waiting For Ga": {
+      "vocals": 80,
+      "bass": 330,
+      "drums": 340,
+      "other": 0
+    },
+    "Night Panther - Fire": {
+      "vocals": 40,
+      "bass": 60,
+      "drums": 340,
+      "other": 300
+    },
+    "Spike Mullings - Mike's Sulking": {
+      "vocals": 0,
+      "bass": 290,
+      "drums": 70,
+      "other": 310
+    },
+    "Bill Chudziak - Children Of No-one": {
+      "vocals": 20,
+      "bass": 0,
+      "drums": 270,
+      "other": 40
+    },
+    "North To Alaska - All The Same": {
+      "vocals": 340,
+      "bass": 70,
+      "drums": 290,
+      "other": 90
+    },
+    "Skelpolu - Human Mistakes": {
+      "vocals": 70,
+      "bass": 80,
+      "drums": 330,
+      "other": 50
+    },
+    "Triviul - Angelsaint": {
+      "vocals": 300,
+      "bass": 10,
+      "drums": 90,
+      "other": 20
+    },
+    "Port St Willow - Stay Even": {
+      "vocals": 350,
+      "bass": 10,
+      "drums": 290,
+      "other": 300
+    },
+    "Leaf - Summerghost": {
+      "vocals": 320,
+      "bass": 80,
+      "drums": 50,
+      "other": 350
+    },
+    "Leaf - Come Around": {
+      "vocals": 320,
+      "bass": 300,
+      "drums": 330,
+      "other": 270
+    },
+    "Leaf - Wicked": {
+      "vocals": 300,
+      "bass": 270,
+      "drums": 30,
+      "other": 280
+    },
+    "Lushlife - Toynbee Suite": {
+      "vocals": 340,
+      "bass": 310,
+      "drums": 300,
+      "other": 40
+    },
+    "Traffic Experiment - Sirens": {
+      "vocals": 280,
+      "bass": 340,
+      "drums": 80,
+      "other": 20
+    },
+    "Cnoc An Tursa - Bannockburn": {
+      "vocals": 30,
+      "bass": 0,
+      "drums": 20,
+      "other": 50
+    },
+    "Hop Along - Sister Cities": {
+      "vocals": 10,
+      "bass": 320,
+      "drums": 330,
+      "other": 340
+    },
+    "Sweet Lights - You Let Me Down": {
+      "vocals": 0,
+      "bass": 350,
+      "drums": 30,
+      "other": 280
+    },
+    "Snowmine - Curfews": {
+      "vocals": 310,
+      "bass": 40,
+      "drums": 0,
+      "other": 50
+    },
+    "The Scarlet Brand - Les Fleurs Du Mal": {
+      "vocals": 30,
+      "bass": 70,
+      "drums": 310,
+      "other": 340
+    },
+    "Voelund - Comfort Lives In Belief": {
+      "vocals": 10,
+      "bass": 40,
+      "drums": 310,
+      "other": 20
+    },
+    "Swinging Steaks - Lost My Way": {
+      "vocals": 290,
+      "bass": 330,
+      "drums": 60,
+      "other": 300
+    },
+    "Meaxic - You Listen": {
+      "vocals": 50,
+      "bass": 350,
+      "drums": 20,
+      "other": 290
+    },
+    "Patrick Talbot - Set Me Free": {
+      "vocals": 310,
+      "bass": 0,
+      "drums": 340,
+      "other": 290
+    },
+    "Jay Menon - Through My Eyes": {
+      "vocals": 10,
+      "bass": 320,
+      "drums": 60,
+      "other": 270
+    },
+    "ANiMAL - Rockshow": {
+      "vocals": 60,
+      "bass": 320,
+      "drums": 340,
+      "other": 300
+    },
+    "Flags - 54": {
+      "vocals": 290,
+      "bass": 70,
+      "drums": 50,
+      "other": 10
+    },
+    "Skelpolu - Together Alone": {
+      "vocals": 340,
+      "bass": 70,
+      "drums": 310,
+      "other": 10
+    },
+    "Fergessen - Nos Palpitants": {
+      "vocals": 0,
+      "bass": 270,
+      "drums": 80,
+      "other": 40
+    },
+    "Giselle - Moss": {
+      "vocals": 40,
+      "bass": 60,
+      "drums": 320,
+      "other": 350
+    },
+    "The Long Wait - Back Home To Blue": {
+      "vocals": 60,
+      "bass": 10,
+      "drums": 280,
+      "other": 70
+    },
+    "James May - On The Line": {
+      "vocals": 80,
+      "bass": 340,
+      "drums": 320,
+      "other": 30
+    },
+    "James May - If You Say": {
+      "vocals": 90,
+      "bass": 300,
+      "drums": 340,
+      "other": 70
+    },
+    "Actions - Devil's Words": {
+      "vocals": 310,
+      "bass": 50,
+      "drums": 350,
+      "other": 90
+    },
+    "Music Delta - Reggae": {
+      "vocals": 30,
+      "bass": 350,
+      "drums": 40,
+      "other": 290
+    },
+    "James May - Dont Let Go": {
+      "vocals": 70,
+      "bass": 340,
+      "drums": 80,
+      "other": 60
+    },
+    "Music Delta - Britpop": {
+      "vocals": 40,
+      "bass": 290,
+      "drums": 280,
+      "other": 300
+    },
+    "Tim Taler - Stalker": {
+      "vocals": 280,
+      "bass": 330,
+      "drums": 50,
+      "other": 80
+    },
+    "ANiMAL - Easy Tiger": {
+      "vocals": 280,
+      "bass": 20,
+      "drums": 350,
+      "other": 10
+    },
+    "Music Delta - 80s Rock": {
+      "vocals": 0,
+      "bass": 310,
+      "drums": 10,
+      "other": 70
+    },
+    "Actions - One Minute Smile": {
+      "vocals": 30,
+      "bass": 340,
+      "drums": 40,
+      "other": 320
+    },
+    "St Vitus - Word Gets Around": {
+      "vocals": 320,
+      "bass": 0,
+      "drums": 280,
+      "other": 90
+    },
+    "Music Delta - Country1": {
+      "vocals": 40,
+      "bass": 280,
+      "drums": 290,
+      "other": 310
+    },
+    "Helado Negro - Mitad Del Mundo": {
+      "vocals": 310,
+      "bass": 20,
+      "drums": 320,
+      "other": 30
+    },
+    "Creepoid - OldTree": {
+      "vocals": 50,
+      "bass": 310,
+      "drums": 70,
+      "other": 340
+    },
+    "Johnny Lokke - Whisper To A Scream": {
+      "vocals": 0,
+      "bass": 310,
+      "drums": 270,
+      "other": 10
+    },
+    "Invisible Familiars - Disturbing Wildlife": {
+      "vocals": 10,
+      "bass": 0,
+      "drums": 30,
+      "other": 300
+    },
+    "Matthew Entwistle - Dont You Ever": {
+      "vocals": 50,
+      "bass": 340,
+      "drums": 10,
+      "other": 350
+    }
+  }
+}
