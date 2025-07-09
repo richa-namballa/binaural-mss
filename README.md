@@ -17,60 +17,78 @@ To perform binaural synthesis, first download [MUSDB18-HQ](https://zenodo.org/re
 
 ```
 python binaural_synth.py \
-        /path/to/musdbhq18
-        /path/to/output/directory
-        /path/to/hrir/directory
+    /path/to/musdbhq18
+    /path/to/output/directory
+    /path/to/hrir/directory
 ```
 
 **Example usage to reproduce Binaural-MUSDB**:
 
 ```
 python binaural_synth.py \
-        data/musdb18hq
-        data/binaural_musdb18
-        data/D1_HRIR_WAV/44K_16bit
-        data/binaural_musdb_metadata.json
+    data/musdb18hq
+    data/binaural_musdb18
+    data/D1_HRIR_WAV/44K_16bit
+    data/binaural_musdb_metadata.json
 ```
 
 
 ## Experiments
 ### Inference
 
-To run inference on either MUSDB18-HQ or Binaural-MUSDB:
+To run inference on either MUSDB18-HQ or Binaural-MUSDB from the `inference/` directory:
 
 **HT Demucs (FT)**
 ```
-python inference/demucs.py \
-        /path/to/input/data/split
-        -o /path/to/output/directory
+python demucs.py \
+    /path/to/input/data/split \
+    -o /path/to/output/directory
 ```
 
 **Open-Unmix**
 ```
-python inference/open_umx.py \
-        /path/to/input/data/split
-        -o /path/to/output/directory
+python open_umx.py \
+    /path/to/input/data/split \
+    -o /path/to/output/directory
 ```
 
 **Spleeter**
 ```
-python inference/spleeter.py \
-        /path/to/input/data/split
-        -o /path/to/output/directory
+python spleeter.py \
+    /path/to/input/data/split \
+    -o /path/to/output/directory
 ```
 
 **Example Usage**
 ```
-python inference/demucs.py \
-        data/binaural_musdb18/test
-        -o data/output/htdemucs_ft/binaural/test
+python demucs.py \
+    data/binaural_musdb18/test \
+    -o data/output/htdemucs_ft/binaural/test
 ```
 
 ### Evaluation
 
-To evaluate the models' performances, we compute the Signal to Spatial Distortion Ratio (SSR) and Signal to Residual Distortion (SRR) ratios in `spauq_metrics.ipynb`. The Interaural Time Difference (ITD) and Interauaral Level Difference (ILD), as well as their $\Delta$ values, are calculated in `interaural_metrics.ipynb`.
+To evaluate the models' performances, we compute the Signal to Spatial Distortion Ratio (**SSR**) and Signal to Residual Distortion (**SRR**) ratios. The reference and estimated directories should contain subdirectories for each song, containing the stems as WAV files. Run the scripts from the `eval` directory.
 
-The summary statistics are available in `table_analysis.ipynb`. Plots can be replicated in `plot_analysis.ipynb` but you must run `metadata.ipynb` to aggregate the angle metadata first.
+```
+python spauq_metrics.py \
+    /path/to/reference/directories \
+    /path/to/estimated/directories \
+    -o /path/to/output/directory \
+    -n name_of_output_csv_file
+```
+
+Similarly, the difference in interaural time difference (**$\Delta$ITD**) and interaural level difference (**$\Delta$ILD**) can be calculated.
+```
+python interaural_metrics.py \
+    /path/to/reference/directories \
+    /path/to/estimated/directories \
+    -o /path/to/output/directory \
+    -n name_of_output_csv_file
+```
+
+
+The summary statistics are available in `notebook/table_analysis.ipynb`. Plots can be replicated in `notebook/plot_analysis.ipynb` but you must run `metadata.ipynb` to aggregate the angle metadata first.
 
 ## BibTeX Citation
 

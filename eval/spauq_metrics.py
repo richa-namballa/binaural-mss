@@ -23,9 +23,9 @@ def evaluate(ref_path, est_path):
     Parameters
     ----------
     ref_path : str
-               Path to ground-truth stem WAV file.
+        Path to ground-truth stem WAV file.
     est_path : str
-               Path to estimated stem WAV file.
+        Path to estimated stem WAV file.
 
     Returns
     -------
@@ -58,7 +58,7 @@ def evaluate(ref_path, est_path):
         y_est = y_est[:min_n, :]
         
     # compute SPAUQ metrics
-    transpose array so that the dimensions are (channels, samples)
+    # transpose array so that the dimensions are (channels, samples)
     eval_out = spauq_eval(reference=y_ref.T, estimate=y_est.T, fs=sr_ref,
                           return_framewise=RETURN_FRAMEWISE, return_cost=RETURN_COST,
                           return_shift=RETURN_SHIFT, return_scale=RETURN_SCALE,
