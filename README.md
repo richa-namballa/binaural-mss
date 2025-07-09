@@ -88,7 +88,7 @@ python interaural_metrics.py \
 ```
 
 
-The summary statistics are available in `notebook/table_analysis.ipynb`. Plots can be replicated in `notebook/plot_analysis.ipynb` but you must run `metadata.ipynb` to aggregate the angle metadata first.
+The summary statistics can be computed in `notebook/table_analysis.ipynb`. Plots can be replicated in `notebook/plot_analysis.ipynb` but you must run `metadata.ipynb` to aggregate the angle metadata first.
 
 ## BibTeX Citation
 
