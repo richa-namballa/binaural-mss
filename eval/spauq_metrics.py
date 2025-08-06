@@ -13,8 +13,6 @@ RETURN_COST = True
 RETURN_SHIFT = True
 RETURN_SCALE = True
 
-STEMS = ["drums", "bass", "other", "vocals"]
-
 
 def evaluate(ref_path, est_path):
     """
@@ -85,6 +83,10 @@ def main():
                         default="spauq_metrics",
                         help="Name of output CSV file with computed SPAUQ metrics \
                         (default: spauq_metrics)")
+    parser.add_argument("-s" "--sources", nargs='*', metavar='',
+                        default=["drums", "bass", "other", "vocals"],
+                        help="Name of sources (stems) to evaluate \
+                        (default: MUSDB 4-stems)")
     
     args = parser.parse_args()
 
@@ -95,6 +97,7 @@ def main():
     # set input directories
     REFERENCE_DIR = args.ref_dir
     ESTIMATE_DIR = args.est_dir
+    STEMS = args.sources
 
     # get all of the files in the input directory
     print("Loading list of files...")
