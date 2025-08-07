@@ -1,4 +1,8 @@
 dataset,model,source,SSR,SRR,diff_ITD,diff_ILD
+Binaural,BS-RoFormer,bass,8.63,10.57,498.87,0.06
+Binaural,BS-RoFormer,drums,9.63,14.01,0.0,0.04
+Binaural,BS-RoFormer,other,11.48,7.92,0.0,0.26
+Binaural,BS-RoFormer,vocals,8.45,10.37,0.0,0.32
 Binaural,Demucs,bass,9.13,8.9,476.19,0.2
 Binaural,Demucs,drums,10.39,10.58,0.0,0.31
 Binaural,Demucs,other,12.62,4.1,22.68,0.57
@@ -11,6 +15,10 @@ Binaural,Spleeter,bass,10.63,1.53,544.22,0.44
 Binaural,Spleeter,drums,11.86,4.71,22.68,0.52
 Binaural,Spleeter,other,9.96,0.11,22.68,0.99
 Binaural,Spleeter,vocals,5.22,0.0,22.68,0.74
+Stereo,BS-RoFormer,bass,15.88,8.12,0.0,0.07
+Stereo,BS-RoFormer,drums,23.77,11.82,0.0,0.05
+Stereo,BS-RoFormer,other,16.89,7.99,0.0,0.09
+Stereo,BS-RoFormer,vocals,19.99,9.11,0.0,0.03
 Stereo,Demucs,bass,17.18,8.36,0.0,0.08
 Stereo,Demucs,drums,20.63,9.86,0.0,0.07
 Stereo,Demucs,other,14.11,6.36,0.0,0.11
