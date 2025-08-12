@@ -11,6 +11,10 @@ Binaural,OpenUnmix,bass,10.94,3.37,521.54,0.41
 Binaural,OpenUnmix,drums,12.22,6.75,0.0,0.38
 Binaural,OpenUnmix,other,11.04,1.19,226.76,0.72
 Binaural,OpenUnmix,vocals,8.2,2.37,0.0,0.73
+Binaural,SCNet,bass,9.75,8.88,464.85,0.27
+Binaural,SCNet,drums,9.97,12.14,0.0,0.27
+Binaural,SCNet,other,12.24,5.93,181.41,0.52
+Binaural,SCNet,vocals,9.09,7.58,374.15,0.32
 Binaural,Spleeter,bass,10.63,1.53,544.22,0.44
 Binaural,Spleeter,drums,11.86,4.71,22.68,0.52
 Binaural,Spleeter,other,9.96,0.11,22.68,0.99
@@ -27,6 +31,10 @@ Stereo,OpenUnmix,bass,9.74,1.72,0.0,0.12
 Stereo,OpenUnmix,drums,12.12,4.82,0.0,0.1
 Stereo,OpenUnmix,other,10.09,2.9,0.0,0.24
 Stereo,OpenUnmix,vocals,11.22,2.4,0.0,0.08
+Stereo,SCNet,bass,17.98,8.29,0.0,0.07
+Stereo,SCNet,drums,21.35,10.92,0.0,0.05
+Stereo,SCNet,other,17.39,7.84,0.0,0.07
+Stereo,SCNet,vocals,17.77,8.63,0.0,0.04
 Stereo,Spleeter,bass,8.69,1.25,0.0,0.15
 Stereo,Spleeter,drums,11.54,4.51,0.0,0.08
 Stereo,Spleeter,other,11.31,3.31,0.0,0.23
