@@ -1,5 +1,6 @@
 dataset,model,SSR,SRR,diff_ITD,diff_ILD
 Binaural,BS-RoFormer,9.7,10.95,0.0,0.1
+Binaural,Binaural-SCNet,10.82,11.11,192.74,0.2
 Binaural,Demucs,10.59,6.91,68.03,0.39
 Binaural,OpenUnmix,10.43,3.51,90.7,0.5
 Binaural,SCNet,10.29,8.88,272.11,0.31

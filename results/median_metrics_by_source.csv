@@ -3,6 +3,10 @@ Binaural,BS-RoFormer,bass,8.63,10.57,498.87,0.06
 Binaural,BS-RoFormer,drums,9.63,14.01,0.0,0.04
 Binaural,BS-RoFormer,other,11.48,7.92,0.0,0.26
 Binaural,BS-RoFormer,vocals,8.45,10.37,0.0,0.32
+Binaural,Binaural-SCNet,bass,10.32,13.33,476.19,0.1
+Binaural,Binaural-SCNet,drums,10.72,13.66,0.0,0.2
+Binaural,Binaural-SCNet,other,13.12,9.49,22.68,0.25
+Binaural,Binaural-SCNet,vocals,9.85,8.99,362.81,0.23
 Binaural,Demucs,bass,9.13,8.9,476.19,0.2
 Binaural,Demucs,drums,10.39,10.58,0.0,0.31
 Binaural,Demucs,other,12.62,4.1,22.68,0.57
