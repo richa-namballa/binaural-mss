@@ -17,8 +17,8 @@ To perform binaural synthesis, first download [MUSDB18-HQ](https://zenodo.org/re
 
 ```
 python binaural_synth.py \
-    /path/to/musdbhq18
-    /path/to/output/directory
+    /path/to/musdbhq18 \
+    /path/to/output/directory \
     /path/to/hrir/directory
 ```
 
@@ -26,9 +26,9 @@ python binaural_synth.py \
 
 ```
 python binaural_synth.py \
-    data/musdb18hq
-    data/binaural_musdb18
-    data/D1_HRIR_WAV/44K_16bit
+    data/musdb18hq \
+    data/binaural_musdb18 \
+    data/D1_HRIR_WAV/44K_16bit \
     data/binaural_musdb_metadata.json
 ```
 
@@ -75,7 +75,8 @@ python spauq_metrics.py \
     /path/to/reference/directories \
     /path/to/estimated/directories \
     -o /path/to/output/directory \
-    -n name_of_output_csv_file
+    -n name_of_output_csv_file \
+    -s [list_of_sources_to_evaluate]
 ```
 
 Similarly, the difference in interaural time difference (**ΔITD**) and interaural level difference (**ΔILD**) can be calculated.
@@ -84,7 +85,8 @@ python interaural_metrics.py \
     /path/to/reference/directories \
     /path/to/estimated/directories \
     -o /path/to/output/directory \
-    -n name_of_output_csv_file
+    -n name_of_output_csv_file \
+    -s [list_of_sources_to_evaluate]
 ```
 
 

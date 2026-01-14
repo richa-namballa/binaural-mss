@@ -16,8 +16,6 @@ ENERGY_THRESHOLD = 5e-4
 TMAX = int(1e-3 * SAMPLE_RATE)  # maximum lag in samples = +/- 1 ms
 FRAME_LENGTH = 0.5  # seconds
 
-STEMS = ["drums", "bass", "other", "vocals"]
-
 # ITD/ILD Evaluation Functions
 # Veluri, B., Itani, M., Chan, J., Yoshioka, T., & Gollakota, S. (2023).
 
@@ -234,6 +232,10 @@ def main():
                         default="interaural_metrics",
                         help="Name of output CSV file with computed SPAUQ metrics \
                         (default: interaural_metrics)")
+    parser.add_argument("-s" "--sources", nargs='*', metavar='',
+                        default=["drums", "bass", "other", "vocals"],
+                        help="Name of sources (stems) to evaluate \
+                        (default: MUSDB 4-stems)")
     
     args = parser.parse_args()
 
@@ -244,6 +246,7 @@ def main():
     # set input directories
     REFERENCE_DIR = args.ref_dir
     ESTIMATE_DIR = args.est_dir
+    STEMS = args.sources
 
     # get all of the files in the input directory
     print("Loading list of files...")
