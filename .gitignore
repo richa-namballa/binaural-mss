@@ -1,3 +1,9 @@
+# SLURM
+**/*.sbatch
+
+# Logs
+**/logs/
+
 # Data
 data/
 
