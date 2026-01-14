@@ -75,7 +75,8 @@ python spauq_metrics.py \
     /path/to/reference/directories \
     /path/to/estimated/directories \
     -o /path/to/output/directory \
-    -n name_of_output_csv_file
+    -n name_of_output_csv_file \
+    -s [list_of_sources_to_evaluate]
 ```
 
 Similarly, the difference in interaural time difference (**ΔITD**) and interaural level difference (**ΔILD**) can be calculated.
@@ -84,7 +85,8 @@ python interaural_metrics.py \
     /path/to/reference/directories \
     /path/to/estimated/directories \
     -o /path/to/output/directory \
-    -n name_of_output_csv_file
+    -n name_of_output_csv_file \
+    -s [list_of_sources_to_evaluate]
 ```
 
 
