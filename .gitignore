@@ -1,3 +1,9 @@
+# Singularity
+sing
+singrw
+*.ext3
+*.sifpath
+
 # SLURM
 **/*.sbatch
 
