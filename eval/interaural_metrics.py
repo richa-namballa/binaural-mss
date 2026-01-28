@@ -59,17 +59,14 @@ def tdoa(x1, x2, interp=1, fs=44100, phat=True, t_max=None):
     # used to find the delay between the two microphones
     X1 = rfft(np.array(x1, dtype=np.float32), n=n, axis=-1)
     X2 = rfft(np.array(x2, dtype=np.float32), n=n, axis=-1)
-
+    
+    # compute phase spectrum first and then normalize
+    R = X1 * np.conj(X2)
     if phat:
-        X1 /= np.abs(X1) + 1e-15  # added epsilon to avoid division error
-        X2 /= np.abs(X2) + 1e-15  # added epsilon to avoid division error
-
-    cc = irfft(X1 * np.conj(X2), n=interp * n, axis=-1)
-
-    # alternative: compute phase spectrum first and then normalize
-    # R = X1 * np.conj(X2)
-    # R_phat = R / (np.abs(R) + 1e-15)
-    # cc = irfft(R_phat, n=interp * n, axis=-1)
+        R_phat = R / (np.abs(R) + 1e-15)
+    else:
+        R_phat = R
+    cc = irfft(R_phat, n=interp * n, axis=-1)
 
     # maximum possible delay given distance between microphones
     if t_max is None:
@@ -85,7 +82,7 @@ def tdoa(x1, x2, interp=1, fs=44100, phat=True, t_max=None):
     return tau / (fs * interp)
 
 
-def framewise_gccphat(x, frame_dur, sr, window='tukey'):
+def framewise_gccphat(x, frame_dur, sr, phat, window='tukey'):
     """
     Compute the TDOA using the GCC-PHAT algorithm, in
     a frame-wise manner.
@@ -98,6 +95,8 @@ def framewise_gccphat(x, frame_dur, sr, window='tukey'):
         Desired length of each frame (in seconds).
     sr : int
         Sample rate of the signal.
+    phat : bool
+        Whether to use the phase amplitude normalization.
     window : str, optional (default Tukey)
         Type of window to apply to each frame
         (using scipy window functions).
@@ -132,7 +131,7 @@ def framewise_gccphat(x, frame_dur, sr, window='tukey'):
     frames = frames[mask]
 
     # compute TDOA by frame
-    fw_gccphat = tdoa(frames[..., 0, :], frames[..., 1, :], fs=sr, t_max=TMAX)
+    fw_gccphat = tdoa(frames[..., 0, :], frames[..., 1, :], phat=phat, fs=sr, t_max=TMAX)
 
     # apply weighted mode to get single ITD value
     itd = weighted_mode(fw_gccphat, frame_energy[mask], axis=-1)[0]
@@ -140,7 +139,7 @@ def framewise_gccphat(x, frame_dur, sr, window='tukey'):
     return itd[0]
 
 
-def fw_itd_diff(s_est, s_gt, sr, frame_duration=0.25):
+def fw_itd_diff(s_est, s_gt, sr, phat=True, frame_duration=0.25):
     """
     Compute the ITD error between the estimated signal and the ground-truth signal
     using the frame-wise GCC-PHAT algorithm.
@@ -153,6 +152,8 @@ def fw_itd_diff(s_est, s_gt, sr, frame_duration=0.25):
         Ground-truth 2-channel signal.
     sr : int
         Sample rate of the signal.
+    phat : bool
+        Whether to use the phase amplitude normalization.
     frame_duration : float, optional
         Length of each frame in seconds. Default is 0.25.
 
@@ -161,10 +162,14 @@ def fw_itd_diff(s_est, s_gt, sr, frame_duration=0.25):
     itd : float
         Difference in interaural time difference (ITD) between the estimated
         and ground-truth signals, in microseconds.
+    itd_gt : float
+        Interaural time difference (ITD) of ground-truth signal, in microseconds.
+    itd_est : float
+        Interaural time difference (ITD) of estimated signal, in microseconds.
     """
-    itd_gt = framewise_gccphat(s_gt, frame_duration, sr) * 1e6
-    itd_est = framewise_gccphat(s_est, frame_duration, sr) * 1e6
-    return np.abs(itd_est - itd_gt)
+    itd_gt = framewise_gccphat(s_gt, frame_duration, sr, phat) * 1e6
+    itd_est = framewise_gccphat(s_est, frame_duration, sr, phat) * 1e6
+    return np.abs(itd_est - itd_gt), itd_gt, itd_est
 
 
 def compute_ild(s_left, s_right):
@@ -207,10 +212,14 @@ def ild_diff(s_est, s_gt):
     ild : float
         Difference in interaural level difference (ILD) between the estimated
         and ground-truth signals, in decibels (dB).
+    ild_gt : float
+        Interaural level difference (ILD) of the ground-truth signal, in decibels (dB).
+    ild_est : float
+        Interaural level difference (ILD) of the estimated signal, in decibels (dB).
     """
     ild_est = compute_ild(s_est[..., 0, :], s_est[..., 1, :])
     ild_gt = compute_ild(s_gt[..., 0, :], s_gt[..., 1, :])
-    return np.abs(ild_est - ild_gt)
+    return np.abs(ild_est - ild_gt), ild_gt, ild_est
 
 
 def main():
@@ -232,7 +241,7 @@ def main():
                         default="interaural_metrics",
                         help="Name of output CSV file with computed SPAUQ metrics \
                         (default: interaural_metrics)")
-    parser.add_argument("-s" "--sources", nargs='*', metavar='',
+    parser.add_argument("-s", "--sources", nargs='*', metavar="",
                         default=["drums", "bass", "other", "vocals"],
                         help="Name of sources (stems) to evaluate \
                         (default: MUSDB 4-stems)")
@@ -257,12 +266,22 @@ def main():
     title_list = []
     source_list = []
     itd_list = []
+    itd_ref_list = []
+    itd_est_list = []
     ild_list = []
+    ild_ref_list = []
+    ild_est_list = []
 
     # iterate through each source and compute SSR and SRR
     print("Beginning to evaluate stems...")
     for source in STEMS:
         print(f"\n>>>>{source} <<<<")
+
+        if source == 'bass':
+            phat = False
+        else:
+            phat = True
+
         for song in tqdm(song_list):
             ref_file = os.path.join(REFERENCE_DIR, song, f"{source}.wav")
             est_file = os.path.join(ESTIMATE_DIR, song, f"{source}.wav")
@@ -275,18 +294,24 @@ def main():
             assert sr_ref == sr_est == SAMPLE_RATE
 
             # calculate Delta ITD
-            delta_itd = fw_itd_diff(y_est.T, y_ref.T, SAMPLE_RATE, FRAME_LENGTH)
+            delta_itd, itd_ref, itd_est = fw_itd_diff(y_est.T, y_ref.T, SAMPLE_RATE, phat, FRAME_LENGTH)
 
             # calculate ILD
-            delta_ild = ild_diff(y_est.T, y_ref.T)
+            delta_ild, ild_ref, ild_est = ild_diff(y_est.T, y_ref.T)
 
             title_list.append(song)
             source_list.append(source)
             itd_list.append(delta_itd)
+            itd_ref_list.append(itd_ref)
+            itd_est_list.append(itd_est)
             ild_list.append(delta_ild)
+            ild_ref_list.append(ild_ref)
+            ild_est_list.append(ild_est)
 
     results_df = pd.DataFrame({"title": title_list, "source": source_list,
-                           "diff_ITD": itd_list, "diff_ILD": ild_list})
+                           "diff_ITD": itd_list, "ref_ITD": itd_ref_list,
+                           "est_ITD": itd_est_list, "diff_ILD": ild_list,
+                           "ref_ILD": ild_ref_list, "est_ILD": ild_est_list})
     print("Evaluation complete!")
 
     # interaural metrics
