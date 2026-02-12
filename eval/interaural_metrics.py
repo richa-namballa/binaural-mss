@@ -16,10 +16,10 @@ ENERGY_THRESHOLD = 5e-4
 TMAX = int(1e-3 * SAMPLE_RATE)  # maximum lag in samples = +/- 1 ms
 FRAME_LENGTH = 0.5  # seconds
 
-# ITD/ILD Evaluation Functions
+# ITD/ILD Evaluation Functions, adapted from
 # Veluri, B., Itani, M., Chan, J., Yoshioka, T., & Gollakota, S. (2023).
 
-def tdoa(x1, x2, interp=1, fs=44100, phat=True, t_max=None):
+def tdoa(x1, x2, interp=1, fs=44100, beta=1.0, t_max=None):
     """
     This function computes the time difference of arrival (TDOA)
     of the signal at the two ears or microphones. We recover tau
@@ -40,8 +40,10 @@ def tdoa(x1, x2, interp=1, fs=44100, phat=True, t_max=None):
         it can improve the time resolution (and hence DOA resolution).
     fs : int, optional (default 44100 Hz)
         Sampling frequency of the input signals.
-    phat : bool, optional (default True)
-        Whether to use the phase transform normalization.
+    beta : float, optional (default 1.0)
+        Phase transform partial whitening weight.
+        A value of 1.0 is equivalent to GCC-PHAT while
+        a value of 0.0 is normal GCC.
     t_max : int, optional (default None)
         Maximum value of tau (lag) to use.
 
@@ -62,10 +64,7 @@ def tdoa(x1, x2, interp=1, fs=44100, phat=True, t_max=None):
     
     # compute phase spectrum first and then normalize
     R = X1 * np.conj(X2)
-    if phat:
-        R_phat = R / (np.abs(R) + 1e-15)
-    else:
-        R_phat = R
+    R_phat = R / ((np.abs(R) + 1e-15) ** beta)
     cc = irfft(R_phat, n=interp * n, axis=-1)
 
     # maximum possible delay given distance between microphones
@@ -82,7 +81,7 @@ def tdoa(x1, x2, interp=1, fs=44100, phat=True, t_max=None):
     return tau / (fs * interp)
 
 
-def framewise_gccphat(x, frame_dur, sr, phat, window='tukey'):
+def framewise_gccphat(x, frame_dur, sr, beta=1.0, window='tukey'):
     """
     Compute the TDOA using the GCC-PHAT algorithm, in
     a frame-wise manner.
@@ -95,8 +94,10 @@ def framewise_gccphat(x, frame_dur, sr, phat, window='tukey'):
         Desired length of each frame (in seconds).
     sr : int
         Sample rate of the signal.
-    phat : bool
-        Whether to use the phase amplitude normalization.
+    beta : float, optional (default 1.0)
+        Phase transform partial whitening weight.
+        A value of 1.0 is equivalent to GCC-PHAT while
+        a value of 0.0 is normal GCC.
     window : str, optional (default Tukey)
         Type of window to apply to each frame
         (using scipy window functions).
@@ -131,7 +132,7 @@ def framewise_gccphat(x, frame_dur, sr, phat, window='tukey'):
     frames = frames[mask]
 
     # compute TDOA by frame
-    fw_gccphat = tdoa(frames[..., 0, :], frames[..., 1, :], phat=phat, fs=sr, t_max=TMAX)
+    fw_gccphat = tdoa(frames[..., 0, :], frames[..., 1, :], beta=beta, fs=sr, t_max=TMAX)
 
     # apply weighted mode to get single ITD value
     itd = weighted_mode(fw_gccphat, frame_energy[mask], axis=-1)[0]
@@ -159,7 +160,7 @@ def fw_itd_diff(s_est, s_gt, sr, phat=True, frame_duration=0.25):
 
     Returns
     -------
-    itd : float
+    itd_diff : float
         Difference in interaural time difference (ITD) between the estimated
         and ground-truth signals, in microseconds.
     itd_gt : float
@@ -169,7 +170,9 @@ def fw_itd_diff(s_est, s_gt, sr, phat=True, frame_duration=0.25):
     """
     itd_gt = framewise_gccphat(s_gt, frame_duration, sr, phat) * 1e6
     itd_est = framewise_gccphat(s_est, frame_duration, sr, phat) * 1e6
-    return np.abs(itd_est - itd_gt), itd_gt, itd_est
+    itd_diff = np.abs(itd_est - itd_gt)
+
+    return itd_diff, itd_gt, itd_est
 
 
 def compute_ild(s_left, s_right):
