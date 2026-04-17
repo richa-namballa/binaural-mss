@@ -19,6 +19,7 @@ FRAME_LENGTH = 0.5  # seconds
 # ITD/ILD Evaluation Functions, adapted from
 # Veluri, B., Itani, M., Chan, J., Yoshioka, T., & Gollakota, S. (2023).
 
+
 def tdoa(x1, x2, interp=1, fs=44100, beta=1.0, t_max=None):
     """
     This function computes the time difference of arrival (TDOA)
@@ -61,7 +62,7 @@ def tdoa(x1, x2, interp=1, fs=44100, beta=1.0, t_max=None):
     # used to find the delay between the two microphones
     X1 = rfft(np.array(x1, dtype=np.float32), n=n, axis=-1)
     X2 = rfft(np.array(x2, dtype=np.float32), n=n, axis=-1)
-    
+
     # compute phase spectrum first and then normalize
     R = X1 * np.conj(X2)
     R_phat = R / ((np.abs(R) + 1e-15) ** beta)
@@ -242,7 +243,7 @@ def main():
                           file to (default: ./metrics)")
     parser.add_argument("-n", "--name", metavar="",
                         default="interaural_metrics",
-                        help="Name of output CSV file with computed SPAUQ metrics \
+                        help="Name of output CSV file with computed interaural metrics \
                         (default: interaural_metrics)")
     parser.add_argument("-s", "--sources", nargs='*', metavar="",
                         default=["drums", "bass", "other", "vocals"],
