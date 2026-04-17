@@ -63,7 +63,8 @@ def tdoa(x1, x2, interp=1, fs=44100, beta=1.0, t_max=None):
     X1 = rfft(np.array(x1, dtype=np.float32), n=n, axis=-1)
     X2 = rfft(np.array(x2, dtype=np.float32), n=n, axis=-1)
 
-    # compute phase spectrum first and then normalize
+    # compute power spectrum first and then normalize magnitude
+    # to get the phase spectrum
     R = X1 * np.conj(X2)
     R_phat = R / ((np.abs(R) + 1e-15) ** beta)
     cc = irfft(R_phat, n=interp * n, axis=-1)
@@ -82,7 +83,7 @@ def tdoa(x1, x2, interp=1, fs=44100, beta=1.0, t_max=None):
     return tau / (fs * interp)
 
 
-def framewise_gccphat(x, frame_dur, sr, beta=1.0, window='tukey'):
+def framewise_gccphat(x, frame_dur, sr, beta=1.0, window='hann'):
     """
     Compute the TDOA using the GCC-PHAT algorithm, in
     a frame-wise manner.
@@ -99,7 +100,7 @@ def framewise_gccphat(x, frame_dur, sr, beta=1.0, window='tukey'):
         Phase transform partial whitening weight.
         A value of 1.0 is equivalent to GCC-PHAT while
         a value of 0.0 is normal GCC.
-    window : str, optional (default Tukey)
+    window : str, optional (default Hann)
         Type of window to apply to each frame
         (using scipy window functions).
 
@@ -133,7 +134,7 @@ def framewise_gccphat(x, frame_dur, sr, beta=1.0, window='tukey'):
     frames = frames[mask]
 
     # compute TDOA by frame
-    fw_gccphat = tdoa(frames[..., 0, :], frames[..., 1, :], beta=beta, fs=sr, t_max=TMAX)
+    fw_gccphat = tdoa(frames[..., 0, :], frames[..., 1, :],  fs=sr, beta=beta, t_max=TMAX)
 
     # apply weighted mode to get single ITD value
     itd = weighted_mode(fw_gccphat, frame_energy[mask], axis=-1)[0]
@@ -141,7 +142,7 @@ def framewise_gccphat(x, frame_dur, sr, beta=1.0, window='tukey'):
     return itd[0]
 
 
-def fw_itd_diff(s_est, s_gt, sr, phat=True, frame_duration=0.25):
+def fw_itd_diff(s_est, s_gt, sr, frame_duration=0.5):
     """
     Compute the ITD error between the estimated signal and the ground-truth signal
     using the frame-wise GCC-PHAT algorithm.
@@ -154,8 +155,6 @@ def fw_itd_diff(s_est, s_gt, sr, phat=True, frame_duration=0.25):
         Ground-truth 2-channel signal.
     sr : int
         Sample rate of the signal.
-    phat : bool
-        Whether to use the phase amplitude normalization.
     frame_duration : float, optional
         Length of each frame in seconds. Default is 0.25.
 
@@ -169,8 +168,8 @@ def fw_itd_diff(s_est, s_gt, sr, phat=True, frame_duration=0.25):
     itd_est : float
         Interaural time difference (ITD) of estimated signal, in microseconds.
     """
-    itd_gt = framewise_gccphat(s_gt, frame_duration, sr, phat) * 1e6
-    itd_est = framewise_gccphat(s_est, frame_duration, sr, phat) * 1e6
+    itd_gt = framewise_gccphat(s_gt, frame_duration, sr) * 1e6
+    itd_est = framewise_gccphat(s_est, frame_duration, sr) * 1e6
     itd_diff = np.abs(itd_est - itd_gt)
 
     return itd_diff, itd_gt, itd_est
@@ -281,11 +280,6 @@ def main():
     for source in STEMS:
         print(f"\n>>>>{source} <<<<")
 
-        if source == 'bass':
-            phat = False
-        else:
-            phat = True
-
         for song in tqdm(song_list):
             ref_file = os.path.join(REFERENCE_DIR, song, f"{source}.wav")
             est_file = os.path.join(ESTIMATE_DIR, song, f"{source}.wav")
@@ -298,7 +292,7 @@ def main():
             assert sr_ref == sr_est == SAMPLE_RATE
 
             # calculate Delta ITD
-            delta_itd, itd_ref, itd_est = fw_itd_diff(y_est.T, y_ref.T, SAMPLE_RATE, phat, FRAME_LENGTH)
+            delta_itd, itd_ref, itd_est = fw_itd_diff(y_est.T, y_ref.T, SAMPLE_RATE, FRAME_LENGTH)
 
             # calculate ILD
             delta_ild, ild_ref, ild_est = ild_diff(y_est.T, y_ref.T)
