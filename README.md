@@ -33,65 +33,6 @@ python binaural_synth.py \
 ```
 
 
-## Experiments
-### Inference
-
-To run inference on either MUSDB18-HQ or Binaural-MUSDB from the `inference/` directory:
-
-**HT Demucs (FT)**
-```
-python demucs.py \
-    /path/to/input/data/split \
-    -o /path/to/output/directory
-```
-
-**Open-Unmix**
-```
-python open_umx.py \
-    /path/to/input/data/split \
-    -o /path/to/output/directory
-```
-
-**Spleeter**
-```
-python spleeter.py \
-    /path/to/input/data/split \
-    -o /path/to/output/directory
-```
-
-**Example Usage**
-```
-python demucs.py \
-    data/binaural_musdb18/test \
-    -o data/output/htdemucs_ft/binaural/test
-```
-
-### Evaluation
-
-To evaluate the models' performances, we compute the Signal to Spatial Distortion Ratio (**SSR**) and Signal to Residual Distortion (**SRR**) ratios. The reference and estimated directories should contain subdirectories for each song, containing the stems as WAV files. Run the scripts from the `eval` directory.
-
-```
-python spauq_metrics.py \
-    /path/to/reference/directories \
-    /path/to/estimated/directories \
-    -o /path/to/output/directory \
-    -n name_of_output_csv_file \
-    -s [list_of_sources_to_evaluate]
-```
-
-Similarly, the difference in interaural time difference (**ΔITD**) and interaural level difference (**ΔILD**) can be calculated.
-```
-python interaural_metrics.py \
-    /path/to/reference/directories \
-    /path/to/estimated/directories \
-    -o /path/to/output/directory \
-    -n name_of_output_csv_file \
-    -s [list_of_sources_to_evaluate]
-```
-
-
-The summary statistics can be computed in `notebook/table_analysis.ipynb`. Plots can be replicated in `notebook/plot_analysis.ipynb` but you must run `metadata.ipynb` to aggregate the angle metadata first.
-
 ## BibTeX Citation
 
 ```
@@ -110,15 +51,3 @@ The summary statistics can be computed in `notebook/table_analysis.ipynb`. Plots
 [1] Z. Rafii, A. Liutkus, F.-R. Stöter, S. I. Mimilakis, and R. Bittner, "MUSDB18-HQ - an uncompressed version of MUSDB18," Dec. 2019. [Online]. Available: https://doi.org/10.5281/zenodo.3338373
 
 [2] C. Armstrong, L. Thresh, D. Murphy, and G. Kearney, "A perceptual evaluation of individual and non-individual HRTFs: A case study of the SADIE II database," _Applied Sciences_, vol. 8, no. 11, p. 2029, 2018.
-
-[3] S. Rouard, F. Massa, and A. Défossez, "Hybrid transformers for music source separation," in _2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)_. IEEE, 2023, pp. 1–5.
-
-[4] F.-R. Stöter, S. Uhlich, A. Liutkus, and Y. Mitsufuji, "Open-Unmix - a reference implementation for music source separation," _Journal of Open Source Software_,
-vol. 4, no. 41, p. 1667, 2019. [Online]. Available: https://doi.org/10.21105/joss.01667
-
-[5] R. Hennequin, A. Khlif, F. Voituret, and M. Moussallam, "Spleeter: a fast and efficient music source separation tool with pre-trained models," _Journal of Open Source Software_, vol. 5, no. 50, p. 2154, 2020.
-
-[6] K. N. Watcharasupat and A. Lerch, "Quantifying spatial audio quality impairment," in _2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)_. IEEE, 2024, pp. 746–750.
-
-[7] B. Veluri, M. Itani, J. Chan, T. Yoshioka, and S. Gollakota, “Semantic hearing: Programming acoustic scenes with binaural hearables,” in _Proceedings of the
-36th Annual ACM Symposium on User Interface Software and Technology_, 2023, pp. 1–15.
