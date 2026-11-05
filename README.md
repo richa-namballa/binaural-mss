@@ -2,13 +2,17 @@
 
 This is the accompanying repository for:
 * **"Spacing Out: On the Reliability of Binaural Music Source Separation Metrics"** 
-by R. Namballa and M. Fuentes, (2026).
+by R. Namballa and M. Fuentes, (2026). [Demo Page](https://richa-namballa.github.io/binaural-mss-demo).
 * **"Do Music Source Separation Models Preserve Spatial Information in Binaural Audio?"** 
-by R. Namballa, A. Roginska, and M. Fuentes, (2025).
+by R. Namballa, A. Roginska, and M. Fuentes, (2025). [Demo Page](https://richa-namballa.github.io/spacing-out-demo/).
 
 #### Binaural-MUSDB
 
 See [`data/`](https://github.com/richa-namballa/binaural-mss/tree/main/data) for instructions on how to recreate Binaural-MUSDB or perform additional binaural synthesis experiments.
+
+#### Training
+
+For training a binaural music source separation model, see [Bi-SCNet](https://github.com/richa-namballa/Bi-SCNet/tree/main).
 
 #### Inference
 
