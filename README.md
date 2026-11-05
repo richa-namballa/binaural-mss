@@ -2,9 +2,9 @@
 
 This is the accompanying repository for:
 * **"Spacing Out: On the Reliability of Binaural Music Source Separation Metrics"** 
-by R. Namballa and M. Fuentes.
+by R. Namballa and M. Fuentes, (2026).
 * **"Do Music Source Separation Models Preserve Spatial Information in Binaural Audio?"** 
-by R. Namballa, A. Roginska, and M. Fuentes.
+by R. Namballa, A. Roginska, and M. Fuentes, (2025).
 
 ### Binaural-MUSDB
 
@@ -22,9 +22,11 @@ See [`eval/`](https://github.com/richa-namballa/binaural-mss/tree/main/eval) for
 
 ```
 @inproceedings{Namballa2026,
-  title = {Spacing Out: On the Reliability of Binaural Music Source Separation Metrics},
+  title = {Spacing Out: On the Reliability of
+  Binaural Music Source Separation Metrics},
   author = {Namballa, Richa and Fuentes, Magdalena},
-  booktitle = {Proceedings of the 27th International Society for Music Information Retrieval Conference},
+  booktitle = {Proceedings of the 27th International
+  Society for Music Information Retrieval Conference},
   year = {2026},
   address = {Abu Dhabi, UAE},
   organization = {ISMIR}
@@ -33,9 +35,11 @@ See [`eval/`](https://github.com/richa-namballa/binaural-mss/tree/main/eval) for
 
 ```
 @inproceedings{Namballa2025,
-  title = {Do Music Source Separation Models Preserve Spatial Information in Binaural Audio?},
+  title = {Do Music Source Separation Models Preserve
+  Spatial Information in Binaural Audio?},
   author = {Namballa, Richa and Roginska, Agnieszka and Fuentes, Magdalena},
-  booktitle = {Proceedings of the 26th International Society for Music Information Retrieval Conference},
+  booktitle = {Proceedings of the 26th International
+  Society for Music Information Retrieval Conference},
   year = {2025},
   address = {Daejeon, South Korea},
   organization = {ISMIR}
