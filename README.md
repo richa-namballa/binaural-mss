@@ -20,7 +20,7 @@ See [`eval/`](https://github.com/richa-namballa/binaural-mss/tree/main/eval) for
 
 ## BibTeX Citations
 
-```
+```bibtex
 @inproceedings{Namballa2026,
   title = {Spacing Out: On the Reliability of
   Binaural Music Source Separation Metrics},
@@ -33,7 +33,7 @@ See [`eval/`](https://github.com/richa-namballa/binaural-mss/tree/main/eval) for
 }
 ```
 
-```
+```bibtex
 @inproceedings{Namballa2025,
   title = {Do Music Source Separation Models Preserve
   Spatial Information in Binaural Audio?},
