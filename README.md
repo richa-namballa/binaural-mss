@@ -1,5 +1,7 @@
 # Binaural Musical Source Separation (MSS)
 
+[![arXiv](https://img.shields.io/badge/arXiv-2507.00155-b31b1b.svg)](https://arxiv.org/abs/2507.00155) [![arXiv](https://img.shields.io/badge/arXiv-2607.25919-b31b1b.svg)](https://arxiv.org/abs/2607.25919) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Bi--SCNet-yellow)](https://huggingface.co/richa-namballa/Bi-SCNet)
+
 This is the accompanying repository for:
 * **"Spacing Out: On the Reliability of Binaural Music Source Separation Metrics"** 
 by R. Namballa and M. Fuentes, (2026). [Demo Page](https://richa-namballa.github.io/binaural-mss-demo).
@@ -13,6 +15,7 @@ See [`data/`](https://github.com/richa-namballa/binaural-mss/tree/main/data) for
 #### Training
 
 For training a binaural music source separation model, see [Bi-SCNet](https://github.com/richa-namballa/Bi-SCNet/tree/main).
+Checkpoints are available on [Hugging Face](https://huggingface.co/richa-namballa/Bi-SCNet).
 
 #### Inference
 
