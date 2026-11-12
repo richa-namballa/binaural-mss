@@ -15,6 +15,7 @@ See [`data/`](https://github.com/richa-namballa/binaural-mss/tree/main/data) for
 #### Training
 
 For training a binaural music source separation model, see [Bi-SCNet](https://github.com/richa-namballa/Bi-SCNet/tree/main).
+Checkpoints are available on [Hugging Face](https://huggingface.co/richa-namballa/Bi-SCNet).
 
 #### Inference
 
