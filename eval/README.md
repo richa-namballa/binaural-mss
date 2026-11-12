@@ -4,7 +4,7 @@ To evaluate the models' performances, we compute the Signal to Spatial Distortio
 The reference and estimated directories should contain subdirectories for each song, containing the stems as WAV files.
 
 Run the scripts from the `2025/` or `2026/` directory.
-The years correspond to the version of the metrics used in the ISMIR 2025 paper and ISMIR 2026 papers, respectively.
+The years correspond to the version of the metrics used in the [ISMIR 2025 paper](https://arxiv.org/abs/2507.00155) and [ISMIR 2026 paper](https://arxiv.org/abs/2607.25919), respectively.
 
 ```
 python spauq_metrics.py \
