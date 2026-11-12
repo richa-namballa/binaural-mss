@@ -1,5 +1,9 @@
 # Binaural Musical Source Separation (MSS)
 
+# Your Project Title
+
+[![arXiv](https://img.shields.io/badge/arXiv-2401.12345-b31b1b.svg)](https://arxiv.org/abs/2507.00155)[![arXiv](https://img.shields.io/badge/arXiv-2401.12345-b31b1b.svg)](https://arxiv.org/abs/2607.25919) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Bi--SCNet-yellow)](https://huggingface.co/richa-namballa/Bi-SCNet)
+
 This is the accompanying repository for:
 * **"Spacing Out: On the Reliability of Binaural Music Source Separation Metrics"** 
 by R. Namballa and M. Fuentes, (2026). [Demo Page](https://richa-namballa.github.io/binaural-mss-demo).
